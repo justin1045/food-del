@@ -14,7 +14,7 @@ function First() {
     setLoading(true);
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 1000); // Adjust the loading time here
+    }, 1000);
 
     return () => clearTimeout(timer); // Cleanup timeout on component unmount
   }, [location.pathname]); // Trigger when the route changes
@@ -22,7 +22,7 @@ function First() {
   return (
     <>
       <Navbar />
-      {loading ? <Loader /> : <Outlet />}  {/* Show Loader while loading */}
+      {loading ? <Loader /> : <Outlet />}
       <Footer />
       <ToastContainer />
     </>
