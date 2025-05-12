@@ -1,9 +1,18 @@
-import React from 'react'
+import React from 'react';
+import './loader.css';
 
-function Loader() {
+function FoodLoader() {
   return (
-    <div class="loader"></div>
-  )
+    <div className="loader-container">
+      <div className="plate">
+        <div className="cutlery">
+          <div className="fork"></div>
+          <div className="knife"></div>
+        </div>
+      </div>
+      <div className="loader-text">Loading...</div>
+    </div>
+  );
 }
 
-export default Loader
+export default FoodLoader;

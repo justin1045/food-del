@@ -1,29 +1,70 @@
-body {
+/* Main container */
+.loader-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   display: flex;
   justify-content: center;
-  min-height: 100vh;
   align-items: center;
-  background: #fff;
-}
-/* HTML: <div class="loader"></div> */
-.loader {
-  width: fit-content;
-  font-weight: bold;
-  font-family: monospace;
-  font-size: 30px;
-  background: radial-gradient(circle closest-side,#000 94%,#0000) right/calc(200% - 1em) 100%;
-  animation: l24 1s infinite alternate linear;
-}
-.loader::before {
-  content: "Loading...";
-  line-height: 1em;
-  color: #0000;
-  background: inherit;
-  background-image: radial-gradient(circle closest-side,#fff 94%,#000);
-  -webkit-background-clip:text;
-          background-clip:text;
+  background: rgba(255, 255, 255, 0.7); /* Slight background */
+  z-index: 9999;
 }
 
-@keyframes l24{
-  100%{background-position: left}
+/* Plate */
+.plate {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 8px solid #3498db; /* Plate border color */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: plateRotation 2s infinite linear; /* Rotating plate */
+}
+
+/* Fork and Knife */
+.cutlery {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+}
+
+.fork,
+.knife {
+  width: 10px;
+  height: 40px;
+  background-color: #2c3e50; /* Cutlery color */
+  border-radius: 4px;
+}
+
+.fork {
+  transform: rotate(-45deg); /* Angle fork */
+}
+
+.knife {
+  transform: rotate(45deg); /* Angle knife */
+}
+
+/* Loading text */
+.loader-text {
+  position: absolute;
+  bottom: -30px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Plate rotation animation */
+@keyframes plateRotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
